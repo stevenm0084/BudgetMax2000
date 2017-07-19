@@ -1,0 +1,33 @@
+﻿@model BudgetMax2000.Models.BudgetGroup
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Budget Groups</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Model.Name</th>
+            <th>Annual Cost</th>
+            <th>Monthly Cost</th>
+            <th>Weekly Cost</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            @foreach (var budgetItem in Model.BudgetItems)
+            {
+                <tr>
+                    <td>@budgetItem.Name</td>
+                    <td>@budgetItem.AnnualCost.ToString("C0")</td>
+                    <td>@budgetItem.MonthlyCost.ToString("C0")</td>
+                    <td>@budgetItem.WeeklyCost.ToString("C0")</td>
+                    
+                </tr>
+            }
+    </tbody>
+</table>
+
